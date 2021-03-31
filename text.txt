@@ -1,0 +1,5 @@
+pueden pasar un solo argumento (1 2 3 4) y es valido
+revisar si los argumentos son digitos
+hacer split si el argumento es "1 2 3 4"
+revisar como rellenar el stack a usando listas
+hacer las reglas
