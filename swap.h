@@ -12,7 +12,8 @@ typedef	struct	s_stack
     struct 	s_stack	*next;
 }				t_stack;
 
-int	ft_error(int ret, char *error);
+int ft_error(int ret, char *error);
+int check_args(char **argv, int i, int aux);
 
 
 #endif

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/01 16:10:14 by abello-r          #+#    #+#             */
+/*   Updated: 2021/04/01 16:12:15 by abello-r         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "swap.h"
 
 int ft_error(int ret, char *error)
@@ -22,7 +34,7 @@ int ft_error(int ret, char *error)
         write(1, error, ft_strlen(error));
         write(1, "\n", 1);
         write(1, reset, ft_strlen(reset));
-        return(ret);
+        return (ret);
     }
-    return(0);
+	return(0);
 }
