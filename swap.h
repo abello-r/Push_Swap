@@ -14,6 +14,6 @@ typedef	struct	s_stack
 
 int ft_error(int ret, char *error);
 int check_args(char **argv, int i, int aux);
-
+int split_args(char **argv, int i, int aux);
 
 #endif
