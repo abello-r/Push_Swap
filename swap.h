@@ -14,6 +14,9 @@ typedef	struct	s_stack
 
 int ft_error(int ret, char *error);
 int check_args(char **argv, int i, int aux);
-int split_args(char **argv, int i, int aux);
+int adn_control(char **argv, int i, int j);
+int adn_size(char **adn);
+void free_adn(char **adn);
+
 
 #endif
