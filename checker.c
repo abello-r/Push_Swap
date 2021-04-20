@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 15:51:11 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/05 14:31:15 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/04/19 18:11:44 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,9 @@ int check_args(char **argv, int i, int aux)
 
 int main(int argc, char **argv)
 {
+    t_global g;
     int i;
     int aux;
-    //t_stack *a;
-    //t_stack *b;
 
     i = -1;
     aux = -1;
@@ -68,7 +67,7 @@ int main(int argc, char **argv)
                 return(1);
     aux = 0;
     i = 0;
-    if (adn_control(argv, i, aux) == 1)
+    if (adn_control(&g, argv, i, aux) == 1)
         return(1);
     return(0);
 }

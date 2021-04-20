@@ -1,5 +1,5 @@
 NAME= swap.a
-SRCS= utils.c checker.c split_control.c
+SRCS= utils.c checker.c split_control.c fill_list.c
 OBJ= $(SRCS:.c=.o)
 
 $(NAME): $(OBJ)

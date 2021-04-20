@@ -20,11 +20,10 @@ void free_adn(char **adn)
     free(adn);
 }
 
-int adn_control(char **argv, int i, int j)
+int adn_control(t_global *g, char **argv, int i, int j)
 {
     int *numbers;
     char **adn;
-    int k;
 
     while (argv[++i])
     {
@@ -36,20 +35,15 @@ int adn_control(char **argv, int i, int j)
     if (!numbers)
         return(1);
     i = 0;
-    k = -1;
+    g->len = -1;
     while(argv[++i])
     {
         j = -1;
         adn = ft_split(argv[i], ' ');
         while (adn[++j])
-            numbers[++k] = ft_atoi(adn[j]);
+            numbers[++g->len] = ft_atoi(adn[j]);
         free_adn(adn);
     }
-    i = 0;
-    while (i <= k)
-    {
-        printf("%d\n", numbers[i]);
-        i++;
-    }
+    fill_list(g, numbers);
     return(0);
 }
