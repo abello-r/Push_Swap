@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split_control.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/21 16:53:14 by abello-r          #+#    #+#             */
+/*   Updated: 2021/04/21 17:27:25 by abello-r         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "swap.h"
 
 int	adn_size(char **adn)
@@ -44,6 +56,6 @@ int	adn_control(t_global *g, char **argv, int i, int j)
 			numbers[++g->len] = ft_atoi(adn[j]);
 		free_adn(adn);
 	}
-	fill_list(g, numbers);
+	fill_stack_a(g, numbers);
 	return (0);
 }

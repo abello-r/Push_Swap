@@ -1,51 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fill_list.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/21 16:53:03 by abello-r          #+#    #+#             */
+/*   Updated: 2021/04/21 18:02:31 by abello-r         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "swap.h"
 
-t_stack	*ft_lstnew_stack(int content)
+int	find_repeat_num(t_global *g)
 {
-	t_stack	*x;
+	t_stack	*lst;
 
-	x = malloc(sizeof(t_stack));
-	if (!(x))
-		return (NULL);
-	x->content = content;
-	x->next = NULL;
-	return (x);
+	while (g->a)
+	{
+		lst = g->a->next;
+		while (lst)
+		{
+			if (g->a->content == lst->content)
+			{
+				ft_error(1, "Hay números repetidos");
+				return (1);
+			}
+			lst = lst->next;
+		}
+		g->a = g->a->next;
+	}
+	return (0);
 }
 
-void	ft_lstadd_back_stack(t_stack **lst, t_stack *new)
-{
-	t_stack	*i;
-
-	if (!*lst)
-	{
-		*lst = new;
-		return ;
-	}
-	i = *lst;
-	while (i->next)
-	{
-		i = i->next;
-	}
-	i->next = new;
-}
-
-int	fill_list(t_global *global, int *numbers)
+int	fill_stack_a(t_global *global, int *numbers)
 {
 	int		i;
 	t_stack	*lst;
 
 	i = 0;
-	global->a = ft_lstnew_stack(numbers[i]); // Crear la primera caja de la lista
-	while (++i <= global->len) // Por cada número
+	global->a = ft_lstnew_stack(numbers[i]);
+	while (++i <= global->len)
 	{
-		lst = ft_lstnew_stack(numbers[i]); // Crear una caja con el contenido
-		ft_lstadd_back_stack(&global->a, lst); // Linkearla a la caja anterior
+		lst = ft_lstnew_stack(numbers[i]);
+		ft_lstadd_back_stack(&global->a, lst);
 	}
-	lst = global->a; // Apuntar lst a la primera caja de la lista
-	while (lst) // Mientras lst recorra la lista 
-	{
-		printf("[%d SOY LA LISTA MI PANA]\n", lst->content); // Imprimir el contenido de cada caja
-		lst = lst->next; // Pasar a la siguiente caja de la lista
-	}
+	lst = global->a;
+	find_repeat_num(global);
+	global->a = lst;
 	return (0);
 }

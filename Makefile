@@ -1,5 +1,5 @@
 NAME= swap.a
-SRCS= utils.c checker.c split_control.c fill_list.c
+SRCS= utils.c checker.c split_control.c fill_list.c rules.c functions_lst.c
 OBJ= $(SRCS:.c=.o)
 
 $(NAME): $(OBJ)
@@ -25,6 +25,11 @@ dep:
 	@for i in `seq 1 15`; do echo "\033[36m"--Depurando Terminal--"\033[0m "; sleep 0.15; done
 	@clear
 
+n:
+	@clear
+	@echo "\033[32m"
+	@norminette *.c *.h
+
 clean:
 	@rm -rf $(NAME) $(OBJ) a.out
 	@make -sC ./srcs/Libft/ fclean
@@ -34,4 +39,4 @@ clean:
 fclean: clean
 	@rm -rf libft.a a.out
 
-.PHONY: all clean re fclean
+.PHONY: all clean re fclean n dep run

@@ -29,8 +29,21 @@ int			aux_check_args(char **argv, int i, int aux);
 int			adn_control(t_global *g, char **argv, int i, int j);
 int			adn_size(char **adn);
 void		free_adn(char **adn);
-int			fill_list(t_global *g, int *numbers);
+int			fill_stack_a(t_global *g, int *numbers);
+int			find_repeat_num(t_global *g);
+
+// Functions lst
+
 t_stack		*ft_lstnew_stack(int content);
 void		ft_lstadd_back_stack(t_stack **lst, t_stack *new);
+int			ft_lstsize_stack(t_stack *lst);
+
+// RULES
+
+int			sa_rule(t_global *g);
+int			sb_rule(t_global *g);
+int			ss_rule(t_global *g);
+int			pa_rule(t_global *g);
+int			pb_rule(t_global *g);
 
 #endif
