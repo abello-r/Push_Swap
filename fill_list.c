@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 16:53:03 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/21 18:02:31 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/04/22 15:51:40 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	fill_stack_a(t_global *global, int *numbers)
 
 	i = 0;
 	global->a = ft_lstnew_stack(numbers[i]);
+	global->head_a = global->a;
 	while (++i <= global->len)
 	{
 		lst = ft_lstnew_stack(numbers[i]);

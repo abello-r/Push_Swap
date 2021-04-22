@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 17:15:39 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/21 20:08:11 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/04/21 20:51:33 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	ss_rule(t_global *g)
 {
 	sa_rule(g);
 	sb_rule(g);
+	return (0);
 }
 
 int	pa_rule(t_global *g)

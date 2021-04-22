@@ -8,6 +8,8 @@
 
 # define YELLOW "\033[1;33m"
 # define RED "\033[1;31m"
+# define AZUL "\033[34m"
+# define INV "\e[7m"
 # define RESET "\033[0m"
 
 typedef struct s_stack
@@ -20,10 +22,11 @@ typedef struct s_global
 {
 	t_stack		*a;
 	t_stack		*b;
+	t_stack		*head_a;
+	t_stack		*head_b;
 	int			len;
 }				t_global;
 
-int			ft_error(int ret, char *error);
 int			check_args(char **argv, int i, int aux);
 int			aux_check_args(char **argv, int i, int aux);
 int			adn_control(t_global *g, char **argv, int i, int j);
@@ -31,6 +34,12 @@ int			adn_size(char **adn);
 void		free_adn(char **adn);
 int			fill_stack_a(t_global *g, int *numbers);
 int			find_repeat_num(t_global *g);
+
+// Utils
+
+int			ft_error(int ret, char *error);
+int			ft_draw_lst(t_stack *lst);
+void		copy_stacks(t_global *g);
 
 // Functions lst
 
@@ -45,5 +54,11 @@ int			sb_rule(t_global *g);
 int			ss_rule(t_global *g);
 int			pa_rule(t_global *g);
 int			pb_rule(t_global *g);
+int			ra_rule(t_global *g);
+int			rb_rule(t_global *g);
+int			rr_rule(t_global *g);
+int			rra_rule(t_global *g);
+int			rrb_rule(t_global *g);
+int			rrr_rule(t_global *g);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 16:53:14 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/21 17:27:25 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/04/22 18:37:15 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ int	adn_control(t_global *g, char **argv, int i, int j)
 		free_adn(adn);
 	}
 	fill_stack_a(g, numbers);
+	free(numbers);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 15:51:11 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/21 19:29:21 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/04/22 18:52:34 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ int	main(int argc, char **argv)
 	i = 0;
 	if (adn_control(&g, argv, i, aux) == 1)
 		return (1);
+	rra_rule(&g);
 	return (0);
 }
