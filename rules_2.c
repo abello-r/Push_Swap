@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 20:12:49 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/22 20:00:49 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/04/23 16:52:19 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ int	rra_rule(t_global *g)
 	int	i;
 
 	i = ft_lstsize_stack(g->a);
-
 	if (ft_lstsize_stack(g->a) > 1)
 		while (i-- > 1)
 			ra_rule(g);
@@ -78,12 +77,5 @@ int	rrb_rule(t_global *g)
 	if (ft_lstsize_stack(g->b) > 1)
 		while (i-- > 1)
 			ra_rule(g);
-	return (0);
-}
-
-int	rrr_rule(t_global *g)
-{
-	rra_rule(g);
-	rrb_rule(g);
 	return (0);
 }

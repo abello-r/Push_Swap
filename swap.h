@@ -27,8 +27,8 @@ typedef struct s_global
 	int			len;
 }				t_global;
 
-int			check_args(char **argv, int i, int aux);
-int			aux_check_args(char **argv, int i, int aux);
+void		check_args(char **argv, int i, int aux);
+void		aux_check_args(char **argv, int i, int aux);
 int			adn_control(t_global *g, char **argv, int i, int j);
 int			adn_size(char **adn);
 void		free_adn(char **adn);
@@ -40,6 +40,7 @@ int			find_repeat_num(t_global *g);
 int			ft_error(int ret, char *error);
 int			ft_draw_lst(t_stack *lst);
 void		copy_stacks(t_global *g);
+void		check_neg_sign(int argc, char **argv);
 
 // Functions lst
 
