@@ -25,11 +25,13 @@ typedef struct s_global
 	t_stack		*head_a;
 	t_stack		*head_b;
 	int			len;
+	int			i;
+	int			aux;
 }				t_global;
 
-void		check_args(char **argv, int i, int aux);
+void		check_args(char **argv);
 void		aux_check_args(char **argv, int i, int aux);
-int			adn_control(t_global *g, char **argv, int i, int j);
+void		adn_control(t_global *g, char **argv);
 int			adn_size(char **adn);
 void		free_adn(char **adn);
 int			fill_stack_a(t_global *g, int *numbers);
@@ -41,6 +43,7 @@ int			ft_error(int ret, char *error);
 int			ft_draw_lst(t_stack *lst);
 void		copy_stacks(t_global *g);
 void		check_neg_sign(int argc, char **argv);
+void		init_struct(t_global *g);
 
 // Functions lst
 

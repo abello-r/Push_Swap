@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 16:53:14 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/22 18:37:15 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/04/24 15:24:59 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,31 +32,31 @@ void	free_adn(char **adn)
 	free(adn);
 }
 
-int	adn_control(t_global *g, char **argv, int i, int j)
+void	adn_control(t_global *g, char **argv)
 {
 	int		*numbers;
 	char	**adn;
 
-	while (argv[++i])
+	init_struct(g);
+	while (argv[++g->i])
 	{
-		adn = ft_split(argv[i], ' ');
-		j += adn_size(adn);
+		adn = ft_split(argv[g->i], ' ');
+		g->aux += adn_size(adn);
 		free_adn(adn);
 	}
-	numbers = (int *)malloc(sizeof(int) * j);
+	numbers = (int *)malloc(sizeof(int) * g->aux);
 	if (!numbers)
-		return (1);
-	i = 0;
+		ft_error(1, "No hay espacio en el disco");
+	g->i = 0;
 	g->len = -1;
-	while (argv[++i])
+	while (argv[++g->i])
 	{
-		j = -1;
-		adn = ft_split(argv[i], ' ');
-		while (adn[++j])
-			numbers[++g->len] = ft_atoi(adn[j]);
+		g->aux = -1;
+		adn = ft_split(argv[g->i], ' ');
+		while (adn[++g->aux])
+			numbers[++g->len] = ft_atoi(adn[g->aux]);
 		free_adn(adn);
 	}
 	fill_stack_a(g, numbers);
 	free(numbers);
-	return (0);
 }

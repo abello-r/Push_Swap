@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 16:10:14 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/23 16:49:02 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/04/24 15:24:45 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,10 @@ void	check_neg_sign(int argc, char **argv)
 		}
 		i++;
 	}
+}
+
+void	init_struct(t_global *g)
+{
+	g->i = 0;
+	g->aux = 0;
 }
