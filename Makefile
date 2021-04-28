@@ -20,6 +20,7 @@ run:
 	gcc -Wall -Werror -Wextra $(SRCS) swap.a libft.a
 	clear
 	@echo "\033[34m"Hecho, ahora ejecuta el a.out ✅"\033[0m"
+	@echo "hacer el rra y el rrb"
 
 dep:
 	@clear
