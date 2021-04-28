@@ -5,6 +5,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "./srcs/Libft/libft.h"
+# include "./srcs/gnl/get_next_line_bonus.h"
 
 # define YELLOW "\033[1;33m"
 # define RED "\033[1;31m"
@@ -64,5 +65,9 @@ int			rr_rule(t_global *g);
 int			rra_rule(t_global *g);
 int			rrb_rule(t_global *g);
 int			rrr_rule(t_global *g);
+
+// Read term 
+
+void		read_term(t_global *g);
 
 #endif

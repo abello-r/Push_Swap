@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 15:51:11 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/24 15:32:13 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/04/26 18:50:28 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ int	main(int argc, char **argv)
 		check_args(argv);
 		adn_control(&g, argv);
 	}
+	read_term(&g);
 	return (0);
 }
