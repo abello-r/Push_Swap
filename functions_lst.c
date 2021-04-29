@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 18:02:02 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/28 16:53:01 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/04/29 15:40:12 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,15 @@ void	ft_lstadd_back_stack(t_stack **lst, t_stack *new)
 	i->next = new;
 }
 
-void	ft_lstadd_front_stack(t_stack **alst, t_stack *new)
+void	ft_lstadd_front_stack(t_stack **head, t_stack *new)
 {
+	t_stack	*element;
+
 	if (!new)
 		return ;
-	if (!alst)
+	if (!head)
 		return ;
-	new->next = *alst;
-	*alst = new;
+	element = new;
+	element->next = *head;
+	*head = element;
 }

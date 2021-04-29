@@ -51,7 +51,7 @@ void		init_struct(t_global *g);
 t_stack		*ft_lstnew_stack(int content);
 void		ft_lstadd_back_stack(t_stack **lst, t_stack *new);
 int			ft_lstsize_stack(t_stack *lst);
-void		ft_lstadd_front_stack(t_stack **alst, t_stack *new);
+void		ft_lstadd_front_stack(t_stack **head, t_stack *new);
 
 // RULES
 
