@@ -20,6 +20,7 @@ run:
 	gcc -Wall -Werror -Wextra $(SRCS) swap.a libft.a -o checker
 	clear
 	@echo "\033[34m"Hecho, ahora ejecuta el checker"\033[0m"
+	@echo "Leaks en ra rb rra rrb rrr"
 
 dep:
 	@clear
@@ -38,6 +39,6 @@ clean:
 	@echo "\033[34m"🗑️\  Todo depurado correctamente  \🗑️"\033[0m"
 
 fclean: clean
-	@rm -rf libft.a a.out
+	@rm -rf libft.a checker
 
 .PHONY: all clean re fclean n dep run

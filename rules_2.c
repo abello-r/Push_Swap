@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 20:12:49 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/29 15:41:14 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/04/30 16:14:37 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ int	rrb_rule(t_global *g)
 {
 	t_stack	*aux;
 
+	if (ft_lstsize_stack(g->b) < 1)
+		return (1);
 	copy_stacks(g);
 	aux = malloc(sizeof(t_stack *));
 	ft_memcpy(aux, g->head_b, sizeof(t_stack));

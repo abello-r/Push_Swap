@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 17:15:39 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/29 15:40:32 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/04/30 16:09:26 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ int	sa_rule(t_global *g)
 {
 	t_stack	*aux;
 
-	copy_stacks(g);
-	aux = malloc(sizeof(t_stack *));
-	ft_memcpy(aux, g->a, sizeof(t_stack));
+	aux = g->a;
+	g->head_a = g->a;
 	if (ft_lstsize_stack(g->a) > 1)
 	{
 		g->a = g->a->next->next;
@@ -35,6 +34,8 @@ int	sb_rule(t_global *g)
 {
 	t_stack	*aux;
 
+	if (ft_lstsize_stack(g->b) < 1)
+		return (1);
 	copy_stacks(g);
 	aux = malloc(sizeof(t_stack *));
 	ft_memcpy(aux, g->b, sizeof(t_stack));
@@ -47,6 +48,7 @@ int	sb_rule(t_global *g)
 		g->head_b->next->next = g->b;
 		g->b = g->head_b;
 	}
+	ft_draw_lst(g->b);
 	return (0);
 }
 
