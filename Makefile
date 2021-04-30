@@ -1,6 +1,6 @@
 NAME= swap.a
 GNL= srcs/gnl/get_next_line_bonus.c
-SRCS= $(GNL) utils.c checker.c split_control.c fill_list.c rules.c functions_lst.c rules_2.c rules_3.c get_rules.c
+SRCS= $(GNL) utils.c checker.c split_control.c fill_list.c rules.c functions_lst.c rules_2.c rules_3.c read_term.c
 OBJ= $(SRCS:.c=.o)
 
 $(NAME): $(OBJ)
@@ -17,9 +17,9 @@ all: $(NAME)
 re: fclean all
 
 run:
-	gcc -Wall -Werror -Wextra $(SRCS) swap.a libft.a
+	gcc -Wall -Werror -Wextra $(SRCS) swap.a libft.a -o checker
 	clear
-	@echo "\033[34m"⭐\ Hecho, ahora ejecuta el a.out   \⭐"\033[0m"
+	@echo "\033[34m"Hecho, ahora ejecuta el checker"\033[0m"
 
 dep:
 	@clear
@@ -32,7 +32,7 @@ n:
 	@norminette *.c *.h
 
 clean:
-	@rm -rf $(NAME) $(OBJ) a.out
+	@rm -rf $(NAME) $(OBJ) checker
 	@make -sC ./srcs/Libft/ fclean
 	@clear
 	@echo "\033[34m"🗑️\  Todo depurado correctamente  \🗑️"\033[0m"
