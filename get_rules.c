@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 18:50:47 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/29 15:38:56 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/04/30 13:09:47 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,28 @@ void	read_term(t_global *g)
 		else
 			ft_error(1, "Regla inválida");
 	}
-	ft_draw_lst(g->a);
+	ok_and_ko(g);
+}
+
+void	ok_and_ko(t_global *g)
+{
+	t_stack	*find;
+	t_stack	*aux;
+
+	aux = g->a;
+	while (aux)
+	{
+		find = aux->next;
+		while (find)
+		{
+			if (aux->content > find->content)
+			{
+				printf(RED "KO\n");
+				exit(EXIT_FAILURE);
+			}
+			find = find->next;
+		}
+		aux = aux->next;
+	}
+	printf(GREEN "OK\n");
 }

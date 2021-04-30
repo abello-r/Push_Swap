@@ -9,6 +9,7 @@
 
 # define YELLOW "\033[1;33m"
 # define RED "\033[1;31m"
+# define GREEN "\033[1;32m"
 # define AZUL "\033[34m"
 # define INV "\e[7m"
 # define RESET "\033[0m"
@@ -70,5 +71,6 @@ int			rrr_rule(t_global *g);
 // Read term 
 
 void		read_term(t_global *g);
+void		ok_and_ko(t_global *g);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 16:53:03 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/24 14:13:34 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/04/30 13:04:21 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int	find_repeat_num(t_global *g)
 		while (lst)
 		{
 			if (g->a->content == lst->content)
-				ft_error(1, "Hay números repetidos");
+			{
+				printf(RED "El número [%d] está repetido\n", g->a->content);
+				exit(EXIT_FAILURE);
+			}
 			lst = lst->next;
 		}
 		g->a = g->a->next;

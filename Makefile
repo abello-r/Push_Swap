@@ -19,8 +19,7 @@ re: fclean all
 run:
 	gcc -Wall -Werror -Wextra $(SRCS) swap.a libft.a
 	clear
-	@echo "\033[34m"Hecho, ahora ejecuta el a.out ✅"\033[0m"
-	@echo "hacer el rra y el rrb"
+	@echo "\033[34m"⭐\ Hecho, ahora ejecuta el a.out   \⭐"\033[0m"
 
 dep:
 	@clear
@@ -36,7 +35,7 @@ clean:
 	@rm -rf $(NAME) $(OBJ) a.out
 	@make -sC ./srcs/Libft/ fclean
 	@clear
-	@echo "\033[32m"Todo depurado correctamente ✅"\033[0m"
+	@echo "\033[34m"🗑️\  Todo depurado correctamente  \🗑️"\033[0m"
 
 fclean: clean
 	@rm -rf libft.a a.out
