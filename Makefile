@@ -20,7 +20,11 @@ run:
 	gcc -Wall -Werror -Wextra $(SRCS) swap.a libft.a -o checker
 	clear
 	@echo "\033[34m"Hecho, ahora ejecuta el checker"\033[0m"
-	@echo "Leaks en ra rb rra rrb rrr"
+
+todo:
+	@echo "Leaks al hacer pb de toda la lista y luego rb o rrb rrr"
+	@echo "Push_swap"
+	@echo "Norminette en read_term.c y GNL"
 
 dep:
 	@clear

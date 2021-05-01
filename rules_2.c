@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 20:12:49 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/30 16:14:37 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/05/01 18:18:28 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,17 @@
 int	ra_rule(t_global *g)
 {
 	t_stack	*aux;
+	t_stack	*tmp;
 
 	if (ft_lstsize_stack(g->a) > 1)
 	{
-		copy_stacks(g);
-		aux = malloc(sizeof(t_stack *));
-		ft_memcpy(aux, g->head_a, sizeof(t_stack));
-		aux->next = NULL;
+		tmp = g->a;
+		aux = g->a->next;
 		while (g->a->next)
 			g->a = g->a->next;
-		g->a->next = aux;
-		g->head_a = g->head_a->next;
-		g->a = g->head_a;
+		g->a->next = tmp;
+		tmp->next = NULL;
+		g->a = aux;
 	}
 	return (0);
 }
@@ -34,18 +33,16 @@ int	ra_rule(t_global *g)
 int	rb_rule(t_global *g)
 {
 	t_stack	*aux;
+	t_stack	*tmp;
 
 	if (ft_lstsize_stack(g->b) > 1)
 	{
-		copy_stacks(g);
-		aux = malloc(sizeof(t_stack *));
-		ft_memcpy(aux, g->head_b, sizeof(t_stack));
-		aux->next = NULL;
-		while (g->b->next)
+		tmp = g->b;
+		aux = g->b->next;
 			g->b = g->b->next;
-		g->b->next = aux;
-		g->head_b = g->head_b->next;
-		g->b = g->head_b;
+		g->b->next = tmp;
+		tmp->next = NULL;
+		g->b = aux;
 	}
 	return (0);
 }
@@ -54,6 +51,8 @@ int	rr_rule(t_global *g)
 {
 	ra_rule(g);
 	rb_rule(g);
+	ft_draw_lst(g->a);
+	ft_draw_lst(g->b);
 	return (0);
 }
 
@@ -61,9 +60,8 @@ int	rra_rule(t_global *g)
 {
 	t_stack	*aux;
 
-	copy_stacks(g);
-	aux = malloc(sizeof(t_stack *));
-	ft_memcpy(aux, g->head_a, sizeof(t_stack));
+	g->head_a = g->a;
+	aux = g->a;
 	if (ft_lstsize_stack(g->a) > 1)
 	{
 		while (aux->next)
@@ -88,9 +86,8 @@ int	rrb_rule(t_global *g)
 
 	if (ft_lstsize_stack(g->b) < 1)
 		return (1);
-	copy_stacks(g);
-	aux = malloc(sizeof(t_stack *));
-	ft_memcpy(aux, g->head_b, sizeof(t_stack));
+	g->head_a = g->b;
+	aux = g->b;
 	if (ft_lstsize_stack(g->b) > 1)
 	{
 		while (aux->next)
