@@ -22,7 +22,7 @@ run:
 	@echo "\033[34m"Hecho, ahora ejecuta el checker"\033[0m"
 
 todo:
-	@echo "Leaks al hacer pb de toda la lista y luego rb o rrb rrr"
+	@echo "Leaks al hacer pb de toda la lista y luego rb o rrb rrr ayuda"
 	@echo "Push_swap"
 	@echo "Norminette en read_term.c y GNL"
 
