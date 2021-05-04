@@ -1,6 +1,6 @@
 NAME= swap.a
-GNL= srcs/gnl/get_next_line_bonus.c
-SRCS= $(GNL) utils.c checker.c split_control.c fill_list.c rules.c functions_lst.c rules_2.c rules_3.c read_term.c
+GNL= srcs/gnl/get_next_line_bonus.c srcs/gnl/get_next_line_update_utils.c
+SRCS= $(GNL) utils.c checker.c split_control.c fill_list.c rules.c functions_lst.c rules_2.c rules_3.c read_term.c 
 OBJ= $(SRCS:.c=.o)
 
 $(NAME): $(OBJ)
@@ -22,9 +22,8 @@ run:
 	@echo "\033[34m"Hecho, ahora ejecuta el checker"\033[0m"
 
 todo:
-	@echo "Leaks al hacer pb de toda la lista y luego rb o rrb rrr ayuda"
 	@echo "Push_swap"
-	@echo "Norminette en read_term.c y GNL"
+	@echo "Norminette en read_term.c y gnl"
 
 dep:
 	@clear

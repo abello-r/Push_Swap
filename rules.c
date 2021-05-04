@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 17:15:39 by abello-r          #+#    #+#             */
-/*   Updated: 2021/05/01 16:12:54 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/05/04 15:04:07 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,11 @@ int	pb_rule(t_global *g)
 {
 	t_stack	*aux;
 
-	if (ft_lstsize_stack(g->a) >= 1)
-	{
-		aux = g->a;
-		g->a = g->a->next;
-		aux->next = g->b;
-		g->b = aux;
-	}
+	if (ft_lstsize_stack(g->a) < 1)
+		return (1);
+	aux = g->a;
+	g->a = g->a->next;
+	aux->next = g->b;
+	g->b = aux;
 	return (0);
 }

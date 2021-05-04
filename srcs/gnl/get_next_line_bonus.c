@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 20:25:27 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/26 20:25:28 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/05/04 11:57:05 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-int		ft_negative(char **x, char **line)
+int	ft_negative(char **x, char **line)
 {
 	if (ft_strchr(*x, '\0'))
 	{
@@ -37,7 +37,7 @@ int		ft_negative(char **x, char **line)
 	return (0);
 }
 
-int		ft_nbytesnegativo(ssize_t *nbytes, char **x)
+int	ft_nbytesnegativo(ssize_t *nbytes, char **x)
 {
 	if (*nbytes < 0)
 	{
@@ -51,7 +51,7 @@ int		ft_nbytesnegativo(ssize_t *nbytes, char **x)
 	return (0);
 }
 
-int		ft_aux(ssize_t nbytes, char **x, char **line)
+int	ft_aux(ssize_t nbytes, char **x, char **line)
 {
 	char	*tmp;
 	char	*tmp2;
@@ -63,8 +63,9 @@ int		ft_aux(ssize_t nbytes, char **x, char **line)
 	}
 	if (ft_nbytesnegativo(&nbytes, &*x))
 		return (-1);
-	if ((tmp = ft_strchr(*x, '\n')))
+	if (ft_strchr(*x, '\n'))
 	{
+		tmp = ft_strchr(*x, '\n');
 		*tmp = '\0';
 		*line = ft_strdup(*x);
 		tmp2 = ft_strdup(tmp + 1);
@@ -77,16 +78,15 @@ int		ft_aux(ssize_t nbytes, char **x, char **line)
 	return (0);
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	char		*buff;
 	static char	*x[4096];
 	ssize_t		nbytes;
 	char		*tmp;
 
-	if (fd < 0 || line == NULL || BUFFER_SIZE <= 0 ||
-		(!(buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1)))))
-		return (-1);
+	buff = NULL;
+	ft_gnl_control(&line, fd, &buff);
 	while ((nbytes = read(fd, buff, BUFFER_SIZE)) > 0)
 	{
 		buff[nbytes] = '\0';
@@ -102,6 +102,5 @@ int		get_next_line(int fd, char **line)
 			break ;
 	}
 	free(buff);
-	buff = NULL;
 	return (ft_aux(nbytes, &x[fd], &*line));
 }

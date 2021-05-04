@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 20:25:34 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/26 20:25:36 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/05/03 19:22:21 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int		ft_aux(ssize_t nbytes, char **x, char **line);
 int		ft_nbytesnegativo(ssize_t *nbytes, char **x);
 int		ft_negative(char **x, char **line);
 char	*ft_strchr(const char *s, int c);
+int		ft_gnl_control(char ***line, int fd, char **buff);
 
 #endif

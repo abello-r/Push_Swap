@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 18:50:47 by abello-r          #+#    #+#             */
-/*   Updated: 2021/04/30 16:11:50 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/05/04 11:58:01 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	read_term(t_global *g)
 {
 	char	*buff;
 
-	g->len = 0;
 	while (get_next_line (0, &buff) > 0)
 	{
 		if (!ft_strcmp(buff, "sa"))
@@ -54,6 +53,11 @@ void	ok_and_ko(t_global *g)
 	t_stack	*aux;
 
 	aux = g->a;
+	if (g->b)
+	{
+		printf(RED "KO\n");
+		exit(EXIT_FAILURE);
+	}
 	while (aux)
 	{
 		find = aux->next;

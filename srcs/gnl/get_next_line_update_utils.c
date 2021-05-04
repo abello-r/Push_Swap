@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   get_next_line_update_utils.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/30 13:18:33 by abello-r          #+#    #+#             */
-/*   Updated: 2021/05/04 15:42:51 by abello-r         ###   ########.fr       */
+/*   Created: 2021/05/03 19:14:17 by abello-r          #+#    #+#             */
+/*   Updated: 2021/05/03 19:22:03 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "swap.h"
+#include "get_next_line_bonus.h"
 
-int	main(int argc, char **argv)
+int	ft_gnl_control(char ***line, int fd, char **buff)
 {
-	t_global	g;
-
-	if (argc < 2)
-		ft_error(1, "Inserta números como argumentos");
-	else
-	{
-		check_neg_sign(argc, argv);
-		check_args(argv);
-		adn_control(&g, argv);
-	}
-	read_term(&g);
+	if (fd < 0 || *line == NULL || BUFFER_SIZE <= 0)
+		return (-1);
+	*buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!*buff)
+		return (-1);
 	return (0);
 }
