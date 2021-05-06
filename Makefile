@@ -1,6 +1,10 @@
 NAME= swap.a
 GNL= srcs/gnl/get_next_line_bonus.c srcs/gnl/get_next_line_update_utils.c
-SRCS= $(GNL) utils.c checker.c split_control.c fill_list.c rules.c functions_lst.c rules_2.c rules_3.c read_term.c 
+
+SRCS= $(GNL) args_control.c utils.c split_control.c fill_list.c rules.c functions_lst.c rules_2.c rules_3.c read_term.c
+SRCS_P= push_swap.c
+SRCS_C= checker.c
+
 OBJ= $(SRCS:.c=.o)
 
 $(NAME): $(OBJ)
@@ -9,17 +13,20 @@ $(NAME): $(OBJ)
 	@ar -rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 	@clear
-	@echo "\033[32m"Compila correctamente ✅"\033[0m"
+	@for i in `seq 1 3`; do echo "\033[36m"--Compilando--"\033[0m "; sleep 0.15; done
+	@gcc -Wall -Werror -Wextra $(SRCS) $(SRCS_P) libft.a -o push_swap
+	@gcc -Wall -Werror -Wextra $(SRCS) $(SRCS_C) libft.a -o checker
+	@clear
 
 all: $(NAME)
-
 
 re: fclean all
 
 run:
-	gcc -Wall -Werror -Wextra $(SRCS) swap.a libft.a -o checker
-	clear
-	@echo "\033[34m"Hecho, ahora ejecuta el checker"\033[0m"
+	@echo "\033[36m"Compilando..."\033[0m"
+	@gcc -Wall -Werror -Wextra $(SRCS) $(SRCS_P) libft.a -o push_swap
+	@gcc -Wall -Werror -Wextra $(SRCS) $(SRCS_C) libft.a -o checker
+	@clear
 
 todo:
 	@echo "Push_swap"
@@ -36,7 +43,7 @@ n:
 	@norminette *.c *.h
 
 clean:
-	@rm -rf $(NAME) $(OBJ) checker
+	@rm -rf $(NAME) $(OBJ) checker push_swap
 	@make -sC ./srcs/Libft/ fclean
 	@clear
 	@echo "\033[34m"🗑️\  Todo depurado correctamente  \🗑️"\033[0m"
@@ -44,4 +51,4 @@ clean:
 fclean: clean
 	@rm -rf libft.a checker
 
-.PHONY: all clean re fclean n dep run
+.PHONY: all clean re fclean n dep todo
