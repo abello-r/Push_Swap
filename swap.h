@@ -73,4 +73,11 @@ int			rrr_rule(t_global *g);
 void		read_term(t_global *g);
 void		ok_and_ko(t_global *g);
 
+// Push Swap
+
+void		identify_quantity(t_global *g);
+void		two_num(t_global *g);
+void		three_num(t_global *g);
+
+
 #endif

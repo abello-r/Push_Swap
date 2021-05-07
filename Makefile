@@ -1,19 +1,19 @@
 NAME= swap.a
 GNL= srcs/gnl/get_next_line_bonus.c srcs/gnl/get_next_line_update_utils.c
 
-SRCS= $(GNL) args_control.c utils.c split_control.c fill_list.c rules.c functions_lst.c rules_2.c rules_3.c read_term.c
+SRCS= $(GNL) basic_sort.c args_control.c utils.c split_control.c fill_list.c rules.c functions_lst.c rules_2.c rules_3.c read_term.c
 SRCS_P= push_swap.c
 SRCS_C= checker.c
 
 OBJ= $(SRCS:.c=.o)
 
 $(NAME): $(OBJ)
+	@echo "\033[36m"--Compilando--"\033[0m ";
 	@make -sC ./srcs/Libft
 	@cp ./srcs/Libft/libft.a .
 	@ar -rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 	@clear
-	@for i in `seq 1 3`; do echo "\033[36m"--Compilando--"\033[0m "; sleep 0.15; done
 	@gcc -Wall -Werror -Wextra $(SRCS) $(SRCS_P) libft.a -o push_swap
 	@gcc -Wall -Werror -Wextra $(SRCS) $(SRCS_C) libft.a -o checker
 	@clear
