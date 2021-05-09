@@ -1,7 +1,7 @@
 NAME= swap.a
 GNL= srcs/gnl/get_next_line_bonus.c srcs/gnl/get_next_line_update_utils.c
 
-SRCS= $(GNL) basic_sort.c args_control.c utils.c split_control.c fill_list.c rules.c functions_lst.c rules_2.c rules_3.c read_term.c
+SRCS= $(GNL) psw_rules_draw_3.c psw_rules_draw_2.c psw_rules_draw.c basic_sort.c args_control.c utils.c split_control.c fill_list.c rules.c functions_lst.c rules_2.c rules_3.c read_term.c
 SRCS_P= push_swap.c
 SRCS_C= checker.c
 
@@ -29,7 +29,8 @@ run:
 	@clear
 
 todo:
-	@echo "Push_swap"
+	@echo "2 y 3 numeros está listo"
+	@echo "Hacer de 5 10 100 500"
 	@echo "Norminette en read_term.c y gnl"
 
 dep:

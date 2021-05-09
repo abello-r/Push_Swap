@@ -78,6 +78,19 @@ void		ok_and_ko(t_global *g);
 void		identify_quantity(t_global *g);
 void		two_num(t_global *g);
 void		three_num(t_global *g);
+void		three_num_support(t_global *g, t_stack *t);
 
+// Draw and execute rules in Push Swap
 
+void		draw_sa_rule(t_global *g);
+void		draw_sb_rule(t_global *g);
+void		draw_ss_rule(t_global *g);
+void		draw_ra_rule(t_global *g);
+void		draw_rb_rule(t_global *g);
+void		draw_pb_rule(t_global *g);
+void		draw_pa_rule(t_global *g);
+void		draw_rr_rule(t_global *g);
+void		draw_rra_rule(t_global *g);
+void		draw_rrb_rule(t_global *g);
+void		draw_rrr_rule(t_global *g);
 #endif
