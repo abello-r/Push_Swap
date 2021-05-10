@@ -76,9 +76,14 @@ void		ok_and_ko(t_global *g);
 // Push Swap
 
 void		identify_quantity(t_global *g);
+void		check_order_lst(t_global *g);
+
+// Push Swap order functions
+
 void		two_num(t_global *g);
 void		three_num(t_global *g);
 void		three_num_support(t_global *g, t_stack *t);
+void		five_num(t_global *g);
 
 // Draw and execute rules in Push Swap
 
