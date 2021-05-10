@@ -84,6 +84,7 @@ void		two_num(t_global *g);
 void		three_num(t_global *g);
 void		three_num_support(t_global *g, t_stack *t);
 void		five_num(t_global *g);
+void		five_num_support(t_global *g, int umo, int pmo, int ero);
 
 // Draw and execute rules in Push Swap
 
