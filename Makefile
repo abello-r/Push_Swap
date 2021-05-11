@@ -29,8 +29,8 @@ run:
 	@clear
 
 todo:
-	@echo "2 y 3 numeros está listo"
-	@echo "Hacer de 5 10 100 500"
+	@echo "falta controlar 4 num"
+	@echo "Hacer de 10 100 500"
 	@echo "Norminette en read_term.c y gnl"
 
 dep:

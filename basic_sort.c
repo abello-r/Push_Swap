@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 15:43:28 by abello-r          #+#    #+#             */
-/*   Updated: 2021/05/10 16:32:24 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/05/11 17:51:05 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,54 +64,79 @@ void	five_num(t_global *g)
 	int		umo;
 	int		pmo;
 	int		ero;
+	int		edo;
 
 	t = g->a;
-	draw_pb_rule(g);
-	draw_pb_rule(g);
+	edo = 0;
+/**************************************************/
+
+	if (ft_lstsize_stack(g->a) == 5)
+	{
+		draw_pb_rule(g);
+		draw_pb_rule(g);
+		if (g->b->content < g->b->next->content)
+			draw_sb_rule(g);
+	}
+	else if (ft_lstsize_stack(g->a) == 4)
+		draw_pb_rule(g);
 	three_num(g);
+
+/**************************************************/
+
 	umo = g->a->next->next->content;
 	pmo = g->a->next->content;
 	ero = g->a->content;
-	draw_pa_rule(g);
-	if (g->a->content > umo)
-		draw_ra_rule(g);
-	if (g->a->content > pmo && g->a->content < umo)
+
+	if (g->b->content > umo)
+	{
+		if (g->b->next->content > umo && g->b->next->content < g->b->content)
+		{
+			draw_pa_rule(g);
+			draw_pa_rule(g);
+			draw_ra_rule(g);
+			draw_ra_rule(g);
+		}
+		else
+		{
+			draw_pa_rule(g);
+			draw_ra_rule(g);
+		}
+		umo = g->a->next->next->next->content;
+		pmo = g->a->next->next->content;
+		edo = g->a->next->content;
+		ero = g->a->content;
+	}
+	else if (g->b->content < umo && g->b->content > pmo)
 	{
 		draw_rra_rule(g);
-		draw_sa_rule(g);
-		draw_ra_rule(g);
-		draw_ra_rule(g);
-	}
-	if (g->a->content > ero && g->a->content < pmo)
-		draw_sa_rule(g);
-	five_num_support(g, umo, pmo, ero);
-}
-
-void	five_num_support(t_global *g, int umo, int pmo, int ero)
-{
-	int	edo;
-
-	umo = g->a->next->next->next->content;
-	pmo = g->a->next->next->content;
-	edo = g->a->next->content;
-	ero = g->a->content;
-	draw_pa_rule(g);
-	if (g->a->content > ero && g->a->content < edo)
-		draw_sa_rule(g);
-	if (g->a->content > umo)
-		draw_ra_rule(g);
-	if (g->a->content > pmo && g->a->content < umo)
-	{
-		draw_rra_rule(g);
-		draw_sa_rule(g);
-		draw_ra_rule(g);
-		draw_ra_rule(g);
-	}
-	if (g->a->content > ero && g->a->content < pmo)
-	{
-		draw_sa_rule(g);
-		draw_pb_rule(g);
-		draw_sa_rule(g);
 		draw_pa_rule(g);
+		if (g->b->content > pmo && g->b->content < g->a->content)
+		{
+			draw_pa_rule(g);
+			draw_ra_rule(g);
+		}
+		else if (g->b->content < umo && g->b->content > pmo)
+		{
+			draw_pa_rule(g);
+			draw_ra_rule(g);
+		}
+		draw_ra_rule(g);
+		draw_ra_rule(g);
 	}
+	else if (g->b->content > ero && g->b->content < pmo)
+	{
+		draw_pa_rule(g);
+		draw_sa_rule(g);
+		if (g->b->content > g->a->content && g->b->content < g->a->next->content)
+		{
+			draw_pa_rule(g);
+			draw_sa_rule(g);
+		}
+	}
+	if (g->b)
+		draw_pa_rule(g);
+	if (g->b)
+		draw_pa_rule(g);
+	two_num(g);
+	//ft_draw_lst(g->a);
 }

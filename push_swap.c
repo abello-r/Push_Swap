@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:18:33 by abello-r          #+#    #+#             */
-/*   Updated: 2021/05/10 14:28:50 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/05/11 14:02:51 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	identify_quantity(t_global *g)
 		two_num(g);
 	if (ft_lstsize_stack(g->a) == 3)
 		three_num(g);
-	if (ft_lstsize_stack(g->a) == 5)
+	if (ft_lstsize_stack(g->a) >= 4 && ft_lstsize_stack(g->a) <= 5)
 		five_num(g);
 }
 
