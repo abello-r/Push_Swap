@@ -83,8 +83,14 @@ void		check_order_lst(t_global *g);
 void		two_num(t_global *g);
 void		three_num(t_global *g);
 void		three_num_support(t_global *g, t_stack *t);
+void		less_than_five(t_global *g);
 void		five_num(t_global *g);
 void		five_num_support(t_global *g, int umo, int pmo, int ero);
+void		condition_five_num(t_global *g, int umo, int pmo);
+void		condition_five_num_2(t_global *g);
+void		ladder_five_num(t_global *g, int umo);
+void		one_hundred_num(t_global *g);
+t_stack		*min_num_address(t_global *g);
 
 // Draw and execute rules in Push Swap
 
@@ -99,4 +105,5 @@ void		draw_rr_rule(t_global *g);
 void		draw_rra_rule(t_global *g);
 void		draw_rrb_rule(t_global *g);
 void		draw_rrr_rule(t_global *g);
+
 #endif

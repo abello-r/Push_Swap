@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:18:33 by abello-r          #+#    #+#             */
-/*   Updated: 2021/05/11 14:02:51 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/05/13 17:06:58 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	identify_quantity(t_global *g)
 		three_num(g);
 	if (ft_lstsize_stack(g->a) >= 4 && ft_lstsize_stack(g->a) <= 5)
 		five_num(g);
+	if (ft_lstsize_stack(g->a) >= 6 && ft_lstsize_stack(g->a) <= 100)
+		one_hundred_num(g);
 }
 
 int	main(int argc, char **argv)

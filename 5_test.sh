@@ -34,4 +34,12 @@ if [ ${COUNT} -gt 12 ]
 		exit
 fi
 
+function finish()
+{
+	clear
+	printf "${BLUE}| Test Finalizado | ${NC}\n\nCualquier error escribir a ${RED}abello-r\n\n"
+	exit
+}
+trap finish SIGINT
+
 bash 5_test.sh
