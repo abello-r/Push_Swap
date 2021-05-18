@@ -1,6 +1,7 @@
 BLUE='\033[0;34m'
 GREEN='\033[0;32m'
 RED='\033[0;31m'
+YELLOW='\033[0;33m'
 NC='\033[0m'
 
 NUM1=$(($RANDOM%501))
@@ -15,7 +16,7 @@ clear
 
 if [ -f push_swap ];
 	then
-		printf "${BLUE}|-----5 Números-----|${GREEN} [ $NUM1 $NUM2 $NUM3 $NUM4 $NUM5 ]${NC}\n\n"
+		printf "${BLUE}|-----${YELLOW}5 Números${BLUE}-----|${GREEN} [ $NUM1 $NUM2 $NUM3 $NUM4 $NUM5 ]${NC}\n\n"
 		./push_swap "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5"
 		COUNT=$(./push_swap "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5" | wc -l)
 		if [ ${COUNT} -eq 0 ]

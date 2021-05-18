@@ -26,11 +26,11 @@ run:
 	@echo "\033[36m"Compilando..."\033[0m"
 	@gcc -Wall -Werror -Wextra $(SRCS) $(SRCS_P) libft.a -o push_swap
 	@gcc -Wall -Werror -Wextra $(SRCS) $(SRCS_C) libft.a -o checker
-	@clear
+	clear
 
 todo:
-	@echo "falta controlar 4 num"
-	@echo "Hacer de 10 100 500"
+	@echo "falta controlar 100 num"
+	@echo "Hacer 100 500"
 	@echo "Norminette en read_term.c y gnl"
 
 dep:

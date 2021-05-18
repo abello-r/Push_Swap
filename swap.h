@@ -90,7 +90,10 @@ void		condition_five_num(t_global *g, int umo, int pmo);
 void		condition_five_num_2(t_global *g);
 void		ladder_five_num(t_global *g, int umo);
 void		one_hundred_num(t_global *g);
-t_stack		*min_num_address(t_global *g);
+t_stack		*min_num_locate(t_global *g);
+void		push_min_num_b(t_global *g);
+int			*fill_array(t_global *g);
+
 
 // Draw and execute rules in Push Swap
 
