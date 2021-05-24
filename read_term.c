@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 18:50:47 by abello-r          #+#    #+#             */
-/*   Updated: 2021/05/04 11:58:01 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/05/19 19:26:30 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	ok_and_ko(t_global *g)
 {
 	t_stack	*find;
 	t_stack	*aux;
-
 	aux = g->a;
 	if (g->b)
 	{

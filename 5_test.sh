@@ -17,7 +17,8 @@ clear
 if [ -f push_swap ];
 	then
 		printf "${BLUE}|-----${YELLOW}5 Números${BLUE}-----|${GREEN} [ $NUM1 $NUM2 $NUM3 $NUM4 $NUM5 ]${NC}\n\n"
-		./push_swap "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5"
+		./push_swap "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5" | ./checker "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5"
+		REST=$(./push_swap "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5" | ./checker "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5")
 		COUNT=$(./push_swap "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5" | wc -l)
 		if [ ${COUNT} -eq 0 ]
 			then
@@ -34,6 +35,7 @@ if [ ${COUNT} -gt 12 ]
 		printf "${RED}Error${COUNT}\n${NC}"
 		exit
 fi
+
 
 function finish()
 {

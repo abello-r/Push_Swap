@@ -6,13 +6,13 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 12:59:52 by abello-r          #+#    #+#             */
-/*   Updated: 2021/05/18 17:45:05 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/05/24 18:33:17 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "swap.h"
 
-t_stack	*min_num_locate(t_global *g)
+t_stack	*min_num_locate(t_global *g) // Ubica el numero más pequeño de la lst
 {
 	t_stack	*aux;
 	t_stack	*locate;
@@ -32,7 +32,7 @@ t_stack	*min_num_locate(t_global *g)
 	return (locate);
 }
 
-void	push_min_num_b(t_global *g)
+void	push_min_num_b(t_global *g) // Empuja el numero mas pequeño a B
 {
 	t_stack	*locate;
 	t_stack	*aux;
@@ -54,15 +54,17 @@ void	push_min_num_b(t_global *g)
 	draw_pb_rule(g);
 }
 
-int	*fill_array(t_global *g) // Error con sanitizer aquí
+int	*fill_array(t_global *g) // Relleno un array con la lst
 {
+	t_stack	*aux;
 	int		*str_sort;
 	int		i;
-	t_stack	*aux;
+	int		len;
 
+	len = ft_lstsize_stack(g->a) + 1;
 	i = 0;
 	aux = g->a;
-	str_sort = malloc(sizeof(int) * ft_lstsize_stack(g->a));
+	str_sort = malloc(sizeof(int) * len);
 	while (aux)
 	{
 		str_sort[i] = aux->content;
@@ -73,7 +75,7 @@ int	*fill_array(t_global *g) // Error con sanitizer aquí
 	return(str_sort);
 }
 
-int	*sort_str(t_global *g, int *str)
+int	*sort_str(t_global *g, int *str) // Ordeno el array de menor a mayor
 {
 	int	i;
 	int	j;
@@ -98,38 +100,61 @@ int	*sort_str(t_global *g, int *str)
 	return(str);
 }
 
-void	one_hundred_num(t_global *g)
+void	one_hundred_num(t_global *g) // Pues ni puta idea por ahora
 {
-	/*int		size;
-	int		pack;
-	int		rest;
-	
-	size = ft_lstsize_stack(g->a);
-	pack = size / 5;
-	rest = size % 5;*/
-	
-	int *str;
-	int *sort;
-	int i = 0;
+	int	*sort;
 
-	str = fill_array(g);
-	sort = sort_str(g, str);
-	free(str);
+	sort = fill_array(g);
+	sort = sort_str(g, sort);
 
-	if (sort[i] == 0)
+	pack_calc(g);
+
+	//free(str); # RECUERDA HACER EL FREE HIJO DE TU MADRE
+
+/********************************************** PRINTF ARRAY ORDENADA */
+
+	int i = -1;
+	printf("\n");
+	while (sort[++i] != 0)
+		printf(RED "%d " RESET, sort[i]);
+	printf("\n\n");
+
+/***********************************************/
+
+	int x;
+	int	num;
+	int inc;
+	int five;
+	t_stack *aux;
+
+	five = 5;
+	inc = 0;
+	x = 0;
+	aux = g->a;
+	inc = g->count.size / 5;
+	num = inc - 1; 				// Start
+ 
+	while (five > 0)
 	{
-		printf("%d\n", sort[i]);
-		i++;
+		split_block(g, num, sort);
+		x++;
+		num += inc;
+		five--;
+		printf("\n");
 	}
-	while (sort[i])
+	if (g->count.rest > 0)
 	{
-		printf("%d\n", sort[i]);
-		i++;
+		x = 0;
+		while (sort[x])
+		{
+			num = x;
+			x++;
+		}
+		split_block(g, num, sort);
+		//printf("\n");
 	}
-
-
-
-
-
-
+	printf("\nLISTA A\n");
+	//ft_draw_lst(g->a);
+	printf("LISTA B\n");
+	ft_draw_lst(g->b);
 }

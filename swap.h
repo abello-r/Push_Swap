@@ -20,8 +20,17 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+typedef struct s_count
+{
+	int			size;
+	int			pack;
+	int			rest;
+}				t_count;
+
+
 typedef struct s_global
 {
+	t_count		count;
 	t_stack		*a;
 	t_stack		*b;
 	t_stack		*head_a;
@@ -29,6 +38,7 @@ typedef struct s_global
 	int			len;
 	int			i;
 	int			aux;
+
 }				t_global;
 
 void		check_args(char **argv);
@@ -93,7 +103,9 @@ void		one_hundred_num(t_global *g);
 t_stack		*min_num_locate(t_global *g);
 void		push_min_num_b(t_global *g);
 int			*fill_array(t_global *g);
-
+int			*sort_str(t_global *g, int *str);
+void		pack_calc(t_global *g);
+void		split_block(t_global *g, int num, int *sort);
 
 // Draw and execute rules in Push Swap
 
