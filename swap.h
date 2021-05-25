@@ -106,6 +106,7 @@ int			*fill_array(t_global *g);
 int			*sort_str(t_global *g, int *str);
 void		pack_calc(t_global *g);
 void		split_block(t_global *g, int num, int *sort);
+void	split_block_final(t_global *g, int num, int *sort);
 
 // Draw and execute rules in Push Swap
 

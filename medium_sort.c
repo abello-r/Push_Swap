@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 12:59:52 by abello-r          #+#    #+#             */
-/*   Updated: 2021/05/24 18:33:17 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/05/25 18:18:01 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,21 +136,24 @@ void	one_hundred_num(t_global *g) // Pues ni puta idea por ahora
  
 	while (five > 0)
 	{
+		//printf("nuevo chunk\n");
 		split_block(g, num, sort);
 		x++;
 		num += inc;
 		five--;
-		printf("\n");
+		//printf("\n");
 	}
 	if (g->count.rest > 0)
 	{
+	//	printf("last chunk\n");
 		x = 0;
 		while (sort[x])
 		{
-			num = x;
+			num = sort[x];
 			x++;
 		}
-		split_block(g, num, sort);
+		//printf("ultimo: %d\n", num);
+		split_block_final(g, num, sort);
 		//printf("\n");
 	}
 	printf("\nLISTA A\n");
