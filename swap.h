@@ -37,7 +37,7 @@ typedef struct s_global
 	int			len;
 	int			i;
 	int			aux;
-
+	int			inc;
 }				t_global;
 
 void		check_args(char **argv);
@@ -110,6 +110,10 @@ void		split_block(t_global *g, int num, int *sort);
 void		split_block_final(t_global *g, int num);
 void		volk_b_on_stack_a(t_global *g);
 void		calc_moves_to_a(t_global *g, int num_moves);
+
+void		five_hundred_num(t_global *g);
+int			*calc_for_five_hundred_algo(t_global *g);
+void		pack_calc_5(t_global *g);
 
 // Draw and execute rules in Push Swap
 

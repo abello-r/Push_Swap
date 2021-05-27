@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:18:33 by abello-r          #+#    #+#             */
-/*   Updated: 2021/05/27 15:44:42 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/05/27 20:31:47 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	identify_quantity(t_global *g)
 		five_num(g);
 	if (ft_lstsize_stack(g->a) >= 6 && ft_lstsize_stack(g->a) <= 100)
 		one_hundred_num(g);
+	if (ft_lstsize_stack(g->a) >= 101 && ft_lstsize_stack(g->a) <= 2147483647)
+		five_hundred_num(g);
 }
 
 int	main(int argc, char **argv)
@@ -48,7 +50,7 @@ int	main(int argc, char **argv)
 	t_global	g;
 
 	if (argc < 2)
-		ft_error(2, "Inserta números como argumentos");
+		return (0);
 	else
 	{
 		check_neg_sign(argc, argv);

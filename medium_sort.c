@@ -6,13 +6,11 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 12:59:52 by abello-r          #+#    #+#             */
-/*   Updated: 2021/05/27 15:44:48 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:29:53 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "swap.h"
-
-/***************************************************   1 */
 
 t_stack	*min_num_locate(t_global *g)
 {
@@ -33,8 +31,6 @@ t_stack	*min_num_locate(t_global *g)
 	}
 	return (locate);
 }
-
-/***************************************************   2 */
 
 void	push_min_num_b(t_global *g)
 {
@@ -58,8 +54,6 @@ void	push_min_num_b(t_global *g)
 	draw_pb_rule(g);
 }
 
-/***************************************************   3 */
-
 int	*fill_array(t_global *g)
 {
 	t_stack	*aux;
@@ -80,8 +74,6 @@ int	*fill_array(t_global *g)
 	str_sort[i] = '\0';
 	return (str_sort);
 }
-
-/***************************************************   4 */
 
 int	*sort_str(t_global *g, int *str)
 {
@@ -108,8 +100,6 @@ int	*sort_str(t_global *g, int *str)
 	return (str);
 }
 
-/***************************************************   5 */
-
 int	*calc_for_one_algo(t_global *g)
 {
 	int	*sort;
@@ -118,35 +108,4 @@ int	*calc_for_one_algo(t_global *g)
 	sort = sort_str(g, sort);
 	pack_calc(g);
 	return (sort);
-}
-
-/***************************************************/
-
-void	one_hundred_num(t_global *g)
-{
-	int		*sort;
-	int		num;
-	int		inc;
-	int		five;
-
-	sort = calc_for_one_algo(g);
-	five = 5;
-	inc = g->count.size / 5;
-	num = inc - 1;
-	while (five > 0)
-	{
-		split_block(g, num, sort);
-		num += inc;
-		five--;
-	}
-	if (g->count.rest > 0)
-	{
-		inc = 0;
-		while (inc < g->count.size)
-			num = sort[inc++];
-		split_block_final(g, num);
-	}
-	while (g->b)
-		volk_b_on_stack_a(g);
-	free(sort);
 }

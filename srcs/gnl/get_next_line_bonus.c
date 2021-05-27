@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 20:25:27 by abello-r          #+#    #+#             */
-/*   Updated: 2021/05/04 11:57:05 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/05/27 21:11:09 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,8 @@ int	get_next_line(int fd, char **line)
 
 	buff = NULL;
 	ft_gnl_control(&line, fd, &buff);
-	while ((nbytes = read(fd, buff, BUFFER_SIZE)) > 0)
+	nbytes = read(fd, buff, BUFFER_SIZE);
+	while (nbytes > 0)
 	{
 		buff[nbytes] = '\0';
 		if (!x[fd])
@@ -100,6 +101,7 @@ int	get_next_line(int fd, char **line)
 		}
 		if (ft_strchr(buff, '\n'))
 			break ;
+		nbytes = read(fd, buff, BUFFER_SIZE);
 	}
 	free(buff);
 	return (ft_aux(nbytes, &x[fd], &*line));

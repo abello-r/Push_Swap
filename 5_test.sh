@@ -11,7 +11,7 @@ NUM4=$(($RANDOM%201))
 NUM5=$(($RANDOM%101))
 COUNT=0
 
-sleep 0.2 | printf "${BLUE}42 ${GREEN}Push_Swap ${RED}Tester ${BLUE}.${GREEN}.${RED}.${NC}"
+sleep 0.025 | printf "${BLUE}42 ${GREEN}Push_Swap ${RED}Tester ${BLUE}.${GREEN}.${RED}.${NC}"
 clear
 
 if [ -f push_swap ];

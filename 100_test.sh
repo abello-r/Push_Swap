@@ -32,14 +32,27 @@ NUM89=$(($RANDOM%74101)) NUM90=$(($RANDOM%1801)) NUM91=$(($RANDOM%19101)) NUM92=
 NUM93=$(($RANDOM%32101)) NUM94=$(($RANDOM%999101)) NUM95=$(($RANDOM%99101)) NUM96=$(($RANDOM%99101))
 NUM97=$(($RANDOM%99601)) NUM98=$(($RANDOM%9301)) NUM99=$(($RANDOM%992101)) NUM100=$(($RANDOM%27537))
 
+ARGS="$NUM1 $NUM2 $NUM3 $NUM4 $NUM5 $NUM6 $NUM7 $NUM8 $NUM9 $NUM10 $NUM11 $NUM12 $NUM13 $NUM14 $NUM15 $NUM16 $NUM17 $NUM18 $NUM19 $NUM20 $NUM21 $NUM22 $NUM23 $NUM24 $NUM25 $NUM26 $NUM27 $NUM28 $NUM29 $NUM30 $NUM31 $NUM32 $NUM33 $NUM34 $NUM35 $NUM36 $NUM37 $NUM38 $NUM39 $NUM40 $NUM41 $NUM42 $NUM43 $NUM44 $NUM45 $NUM46 $NUM47 $NUM48 $NUM49 $NUM50 $NUM51 $NUM52 $NUM53 $NUM54 $NUM55 $NUM56 $NUM57 $NUM58 $NUM59 $NUM60 $NUM61 $NUM62 $NUM63 $NUM64 $NUM65 $NUM66 $NUM67 $NUM68 $NUM69 $NUM70 $NUM71 $NUM72 $NUM73 $NUM74 $NUM75 $NUM76 $NUM77 $NUM78 $NUM79 $NUM80 $NUM81 $NUM82 $NUM83 $NUM84 $NUM85 $NUM86 $NUM87 $NUM88 $NUM89 $NUM90 $NUM91 $NUM92 $NUM93 $NUM94 $NUM95 $NUM96 $NUM97 $NUM98 $NUM99 $NUM100"
 sleep 0.025
 clear
 
 if [ -f push_swap ];
 	then
 		printf "    ${BLUE}|-----${BLUE}100 Números${BLUE}-----| ${BLUE}42 ${GREEN}Push_Swap ${RED}Tester ${BLUE}.${GREEN}.${RED}.${NC}${NC}\n\n"
-		./push_swap "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5 $NUM6 $NUM7 $NUM8 $NUM9 $NUM10 $NUM11 $NUM12 $NUM13 $NUM14 $NUM15 $NUM16 $NUM17 $NUM18 $NUM19 $NUM20 $NUM21 $NUM22 $NUM23 $NUM24 $NUM25 $NUM26 $NUM27 $NUM28 $NUM29 $NUM30 $NUM31 $NUM32 $NUM33 $NUM34 $NUM35 $NUM36 $NUM37 $NUM38 $NUM39 $NUM40 $NUM41 $NUM42 $NUM43 $NUM44 $NUM45 $NUM46 $NUM47 $NUM48 $NUM49 $NUM50 $NUM51 $NUM52 $NUM53 $NUM54 $NUM55 $NUM56 $NUM57 $NUM58 $NUM59 $NUM60 $NUM61 $NUM62 $NUM63 $NUM64 $NUM65 $NUM66 $NUM67 $NUM68 $NUM69 $NUM70 $NUM71 $NUM72 $NUM73 $NUM74 $NUM75 $NUM76 $NUM77 $NUM78 $NUM79 $NUM80 $NUM81 $NUM82 $NUM83 $NUM84 $NUM85 $NUM86 $NUM87 $NUM88 $NUM89 $NUM90 $NUM91 $NUM92 $NUM93 $NUM94 $NUM95 $NUM96 $NUM97 $NUM98 $NUM99 $NUM100" | ./checker "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5 $NUM6 $NUM7 $NUM8 $NUM9 $NUM10 $NUM11 $NUM12 $NUM13 $NUM14 $NUM15 $NUM16 $NUM17 $NUM18 $NUM19 $NUM20 $NUM21 $NUM22 $NUM23 $NUM24 $NUM25 $NUM26 $NUM27 $NUM28 $NUM29 $NUM30 $NUM31 $NUM32 $NUM33 $NUM34 $NUM35 $NUM36 $NUM37 $NUM38 $NUM39 $NUM40 $NUM41 $NUM42 $NUM43 $NUM44 $NUM45 $NUM46 $NUM47 $NUM48 $NUM49 $NUM50 $NUM51 $NUM52 $NUM53 $NUM54 $NUM55 $NUM56 $NUM57 $NUM58 $NUM59 $NUM60 $NUM61 $NUM62 $NUM63 $NUM64 $NUM65 $NUM66 $NUM67 $NUM68 $NUM69 $NUM70 $NUM71 $NUM72 $NUM73 $NUM74 $NUM75 $NUM76 $NUM77 $NUM78 $NUM79 $NUM80 $NUM81 $NUM82 $NUM83 $NUM84 $NUM85 $NUM86 $NUM87 $NUM88 $NUM89 $NUM90 $NUM91 $NUM92 $NUM93 $NUM94 $NUM95 $NUM96 $NUM97 $NUM98 $NUM99 $NUM100"
-		COUNT=$(./push_swap "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5 $NUM6 $NUM7 $NUM8 $NUM9 $NUM10 $NUM11 $NUM12 $NUM13 $NUM14 $NUM15 $NUM16 $NUM17 $NUM18 $NUM19 $NUM20 $NUM21 $NUM22 $NUM23 $NUM24 $NUM25 $NUM26 $NUM27 $NUM28 $NUM29 $NUM30 $NUM31 $NUM32 $NUM33 $NUM34 $NUM35 $NUM36 $NUM37 $NUM38 $NUM39 $NUM40 $NUM41 $NUM42 $NUM43 $NUM44 $NUM45 $NUM46 $NUM47 $NUM48 $NUM49 $NUM50 $NUM51 $NUM52 $NUM53 $NUM54 $NUM55 $NUM56 $NUM57 $NUM58 $NUM59 $NUM60 $NUM61 $NUM62 $NUM63 $NUM64 $NUM65 $NUM66 $NUM67 $NUM68 $NUM69 $NUM70 $NUM71 $NUM72 $NUM73 $NUM74 $NUM75 $NUM76 $NUM77 $NUM78 $NUM79 $NUM80 $NUM81 $NUM82 $NUM83 $NUM84 $NUM85 $NUM86 $NUM87 $NUM88 $NUM89 $NUM90 $NUM91 $NUM92 $NUM93 $NUM94 $NUM95 $NUM96 $NUM97 $NUM98 $NUM99 $NUM100" | wc -l)
+		OK=$(./push_swap "${ARGS}" | ./checker "${ARGS}")
+		if [[ ! -z ${OK} && ${OK} == "KO" ]]
+			then
+				printf "${RED}"
+		elif [[ ! -z ${OK} && ${OK} == "OK" ]]
+			then
+				printf "${GREEN}"
+		else
+			printf "${NC}"
+		fi
+
+		./push_swap "${ARGS}" | ./checker "${ARGS}"
+		printf "${NC}"
+		COUNT=$(./push_swap "${ARGS}" | wc -l)
 		if [ ${COUNT} -eq 1 ]
 			then
 				printf "\t${BLUE}Número repetido\n"
@@ -64,19 +77,26 @@ if [ -f push_swap ];
 		bash 100_test.sh
 fi
 
-if [ ${COUNT} -gt ${MOVIMIENTOS} ]
+if [[ ${COUNT} -gt ${MOVIMIENTOS} || ${OK} == "KO" ]]
 	then
-		printf "${RED}Error${COUNT} ${YELLOW}| Puedes ver el log en Error.txt\n${NC}"
-		printf "\n${GREEN}Puedes modificar el límite máximo dentro del script\n\n${NC}"
+		printf	"${YELLOW}Error${COUNT} | Puedes ver el log en Error.txt\n${NC}"
+		printf	"\n${BLUE}Si hay algún problema con el test escribir a AJUNCOSA ó ABELLO-R\n"
+		printf	"\n${GREEN}Puedes modificar el límite máximo dentro del script\n\n${NC}"
 		if [ -f Error.txt ]
 			then
 				rm Error.txt
 		fi
 		touch Error.txt
 		chmod 777 Error.txt
-		let RESTA=`expr $COUNT - $MOVIMIENTOS`
-		echo "Has superado el límite máximo de movimientos [ ${MOVIMIENTOS} ] y has hecho -->${COUNT}" > Error.txt
-		echo "Te has excedido por ${RESTA} movimientos" >> Error.txt
+		echo "Sí hay algún problema con el test escribir a ajuncosa ó abello-r" > Error.txt
+		if [ ${COUNT} -gt ${MOVIMIENTOS} ]
+			then
+				let RESTA=`expr $COUNT - $MOVIMIENTOS`
+				echo "Has superado el límite máximo de movimientos [ ${MOVIMIENTOS} ] y has hecho -->${COUNT}" >> Error.txt
+				echo "Te has excedido por ${RESTA} movimientos" >> Error.txt
+			else
+				echo "Tu push_swap no ordena los números bien :(" >> Error.txt
+		fi
 		echo "Los siguientes números son con los que ha fallado tu programa : " >> Error.txt
 		echo "" >> Error.txt
 		echo "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5 $NUM6 $NUM7 $NUM8 $NUM9 $NUM10" >> Error.txt
@@ -89,16 +109,11 @@ if [ ${COUNT} -gt ${MOVIMIENTOS} ]
 		echo "$NUM71 $NUM72 $NUM73 $NUM74 $NUM75 $NUM76 $NUM77 $NUM78 $NUM79 $NUM80" >> Error.txt
 		echo "$NUM81 $NUM82 $NUM83 $NUM84 $NUM85 $NUM86 $NUM87 $NUM88 $NUM89 $NUM90" >> Error.txt
 		echo "$NUM91 $NUM92 $NUM93 $NUM94 $NUM95 $NUM96 $NUM97 $NUM98 $NUM99 $NUM100" >> Error.txt
+		echo "" >> Error.txt
+		echo "Para copiar y pegar en una línea:" >> Error.txt
+		echo "${ARGS}" >> Error.txt
 		exit
 fi
-
-function finish()
-{
-	clear
-	printf "${BLUE}| Test Finalizado | ${NC}\n\nCualquier error escribir a ${RED}abello-r\n\n"
-	exit
-}
-trap finish SIGINT
 
 if [ -f Error.txt ]
 	then
@@ -109,4 +124,3 @@ printf "${BLUE}PRESS CTRL + D to STOP\n\n\n"
 PID_KILL=$(ps -ef | grep "100_test.sh" | grep -v "grep" | awk '{print $2}')
 bash  100_test.sh &
 kill $PID_KILL
-

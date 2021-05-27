@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 15:43:28 by abello-r          #+#    #+#             */
-/*   Updated: 2021/05/26 12:25:04 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/05/27 21:01:25 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@ void	two_num(t_global *g)
 {
 	if (g->a->content > g->a->next->content)
 		draw_sa_rule(g);
-	if (g->a->next->content > g->a->next->next->content)
+	if (ft_lstsize_stack(g->a) > 2)
 	{
-		draw_ra_rule(g);
-		draw_sa_rule(g);
-		draw_rra_rule(g);
+		if (g->a->next->content > g->a->next->next->content)
+		{
+			draw_ra_rule(g);
+			draw_sa_rule(g);
+			draw_rra_rule(g);
+		}
 	}
 }
 
@@ -86,6 +89,8 @@ void	less_than_five(t_global *g)
 		draw_ra_rule(g);
 		draw_ra_rule(g);
 	}
+	else if (g->b)
+		draw_pa_rule(g);
 	exit(EXIT_SUCCESS);
 }
 
