@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 18:50:47 by abello-r          #+#    #+#             */
-/*   Updated: 2021/05/19 19:26:30 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/05/27 15:50:14 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,11 @@ void	ok_and_ko(t_global *g)
 {
 	t_stack	*find;
 	t_stack	*aux;
+
 	aux = g->a;
 	if (g->b)
 	{
-		printf(RED "KO\n");
+		printf("KO\n");
 		exit(EXIT_FAILURE);
 	}
 	while (aux)
@@ -64,12 +65,12 @@ void	ok_and_ko(t_global *g)
 		{
 			if (aux->content > find->content)
 			{
-				printf(RED "KO\n");
+				printf("KO\n");
 				exit(EXIT_FAILURE);
 			}
 			find = find->next;
 		}
 		aux = aux->next;
 	}
-	printf(GREEN "OK\n");
+	printf("OK\n");
 }

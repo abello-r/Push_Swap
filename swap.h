@@ -27,7 +27,6 @@ typedef struct s_count
 	int			rest;
 }				t_count;
 
-
 typedef struct s_global
 {
 	t_count		count;
@@ -100,13 +99,17 @@ void		condition_five_num(t_global *g, int umo, int pmo);
 void		condition_five_num_2(t_global *g);
 void		ladder_five_num(t_global *g, int umo);
 void		one_hundred_num(t_global *g);
+int			*calc_for_one_algo(t_global *g);
 t_stack		*min_num_locate(t_global *g);
+t_stack		*max_num_locate(t_global *g);
 void		push_min_num_b(t_global *g);
 int			*fill_array(t_global *g);
 int			*sort_str(t_global *g, int *str);
 void		pack_calc(t_global *g);
 void		split_block(t_global *g, int num, int *sort);
-void	split_block_final(t_global *g, int num, int *sort);
+void		split_block_final(t_global *g, int num);
+void		volk_b_on_stack_a(t_global *g);
+void		calc_moves_to_a(t_global *g, int num_moves);
 
 // Draw and execute rules in Push Swap
 

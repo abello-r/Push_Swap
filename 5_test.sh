@@ -17,8 +17,15 @@ clear
 if [ -f push_swap ];
 	then
 		printf "${BLUE}|-----${YELLOW}5 Números${BLUE}-----|${GREEN} [ $NUM1 $NUM2 $NUM3 $NUM4 $NUM5 ]${NC}\n\n"
-		./push_swap "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5" | ./checker "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5"
 		REST=$(./push_swap "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5" | ./checker "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5")
+		if [ ${REST} == "KO" ]
+			then
+				printf "${RED}"
+		else
+			printf "${GREEN}"
+		fi
+		./push_swap "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5" | ./checker "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5"
+		printf "${NC}"
 		COUNT=$(./push_swap "$NUM1 $NUM2 $NUM3 $NUM4 $NUM5" | wc -l)
 		if [ ${COUNT} -eq 0 ]
 			then
@@ -30,7 +37,7 @@ if [ -f push_swap ];
 		bash 5_test.sh
 fi
 
-if [ ${COUNT} -gt 12 ]
+if [ ${COUNT} -gt 12 -o ${REST} == "KO" ]
 	then
 		printf "${RED}Error${COUNT}\n${NC}"
 		exit

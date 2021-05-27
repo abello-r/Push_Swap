@@ -1,7 +1,7 @@
 NAME= swap.a
 GNL= srcs/gnl/get_next_line_bonus.c srcs/gnl/get_next_line_update_utils.c
 
-SRCS= $(GNL) medium_sort_supp.c medium_sort.c supp_basic_sort.c psw_rules_draw_3.c psw_rules_draw_2.c psw_rules_draw.c basic_sort.c args_control.c utils.c split_control.c fill_list.c rules.c functions_lst.c rules_2.c rules_3.c read_term.c
+SRCS= $(GNL) volk_on_stack_a.c medium_sort_supp.c medium_sort.c supp_basic_sort.c psw_rules_draw_3.c psw_rules_draw_2.c psw_rules_draw.c basic_sort.c args_control.c utils.c split_control.c fill_list.c rules.c functions_lst.c rules_2.c rules_3.c read_term.c
 SRCS_P= push_swap.c
 SRCS_C= checker.c
 
@@ -29,8 +29,6 @@ run:
 	clear
 
 todo:
-	@echo "falta controlar 100 num"
-	@echo "Hacer 100 500"
 	@echo "Norminette en read_term.c y gnl"
 
 dep:

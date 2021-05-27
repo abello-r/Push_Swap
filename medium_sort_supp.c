@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 13:33:39 by abello-r          #+#    #+#             */
-/*   Updated: 2021/05/25 18:19:49 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:17:24 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,19 @@ void	pack_calc(t_global *g)
 
 void	split_block(t_global *g, int num, int *sort)
 {
-	t_stack	*aux;
-	int		numbs_of_ra;
-	int		numbs_of_rra;
-	int		x;
-	int		inc;
+	t_stack		*aux;
+	int			numbs_of_ra;
+	int			numbs_of_rra;
+	int			x;
+	int			inc;
 
-	//printf(RED "\nPosicion [%d]\n", num);
 	inc = g->count.pack;
-	aux = g->a;
-	numbs_of_ra = 0;
-	numbs_of_rra = 0;
-	x = 0;
-
-
 	while (inc)
 	{
-		aux = g->a;
 		x = 0;
-
+		aux = g->a;
 		numbs_of_ra = 0;
 		numbs_of_rra = 0;
-
-		//printf(AZUL "sort[%d]\n" RESET, sort[num]);
 		while (aux)
 		{
 			if (aux->content <= sort[num])
@@ -57,7 +47,7 @@ void	split_block(t_global *g, int num, int *sort)
 						numbs_of_rra--;
 					}
 					draw_pb_rule(g);
-					break;
+					break ;
 				}
 				else if (x < (ft_lstsize_stack(g->a) / 2))
 				{
@@ -68,7 +58,7 @@ void	split_block(t_global *g, int num, int *sort)
 						numbs_of_ra--;
 					}
 					draw_pb_rule(g);
-					break;
+					break ;
 				}
 			}
 			x++;
@@ -78,31 +68,24 @@ void	split_block(t_global *g, int num, int *sort)
 	}
 }
 
-void	split_block_final(t_global *g, int num, int *sort)
+void	split_block_final(t_global *g, int num)
 {
-	t_stack	*aux;
-	int		numbs_of_ra;
-	int		numbs_of_rra;
-	int		x;
-	int		inc;
+	t_stack		*aux;
+	int			numbs_of_ra;
+	int			numbs_of_rra;
+	int			x;
+	int			inc;
 
-	//printf(RED "\nPosicion [%d]\n", num);
-	inc = g->count.pack;
+	inc = g->count.rest;
 	aux = g->a;
-	numbs_of_ra = 0;
-	numbs_of_rra = 0;
 	x = 0;
-
 
 	while (inc)
 	{
 		aux = g->a;
 		x = 0;
-
 		numbs_of_ra = 0;
 		numbs_of_rra = 0;
-
-		printf(AZUL "sort[%d]\n" RESET, sort[num]);
 		while (aux)
 		{
 			if (aux->content <= num)
@@ -116,7 +99,7 @@ void	split_block_final(t_global *g, int num, int *sort)
 						numbs_of_rra--;
 					}
 					draw_pb_rule(g);
-					break;
+					break ;
 				}
 				else if (x < (ft_lstsize_stack(g->a) / 2))
 				{
@@ -127,7 +110,7 @@ void	split_block_final(t_global *g, int num, int *sort)
 						numbs_of_ra--;
 					}
 					draw_pb_rule(g);
-					break;
+					break ;
 				}
 			}
 			x++;
